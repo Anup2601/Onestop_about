@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Services</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Navigation Bar */
+          /* Navigation Bar */
   nav {
     background-color: #333;
     padding: .3rem;
@@ -68,15 +67,16 @@ nav .logo .logo-img {
             </a>
           </nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 <body class="bg-gray-50">
     <div class="container mx-auto px-4 py-12">
+        <!-- Services Grid (Previous code remains the same) -->
         <header class="text-center mb-12">
             <h1 class="text-4xl font-bold text-gray-900 mb-4">Our Professional Services</h1>
             <p class="text-xl text-gray-600">Expert solutions for all your needs</p>
@@ -89,70 +89,80 @@ nav .logo .logo-img {
                     description: "Expert legal consultation with experienced attorneys",
                     price: "$150/hour",
                     icon: "fa-scale-balanced",
-                    color: "blue"
+                    color: "blue",
+                    fields: ["Legal Issue Type", "Case Description", "Preferred Attorney (Optional)"]
                 },
                 {
                     title: "Medical Consultations",
                     description: "Professional medical advice from certified doctors",
                     price: "$200/session",
                     icon: "fa-user-doctor",
-                    color: "green"
+                    color: "green",
+                    fields: ["Specialty Required", "Symptoms", "Medical History"]
                 },
                 {
                     title: "Counseling Services",
                     description: "Supportive mental health counseling and therapy",
                     price: "$100/session",
                     icon: "fa-heart",
-                    color: "pink"
+                    color: "pink",
+                    fields: ["Type of Counseling", "Previous Counseling Experience", "Preferred Counselor Gender"]
                 },
                 {
                     title: "Financial Advisory",
                     description: "Professional financial planning and investment advice",
                     price: "$175/hour",
                     icon: "fa-coins",
-                    color: "yellow"
+                    color: "yellow",
+                    fields: ["Investment Goals", "Current Portfolio Value", "Risk Tolerance"]
                 },
                 {
                     title: "Education",
                     description: "Professional tutoring and educational support",
                     price: "$50/hour",
                     icon: "fa-graduation-cap",
-                    color: "purple"
+                    color: "purple",
+                    fields: ["Subject", "Grade Level", "Learning Goals"]
                 },
                 {
                     title: "Business",
                     description: "Strategic business consulting and development",
                     price: "$200/hour",
                     icon: "fa-briefcase",
-                    color: "indigo"
+                    color: "indigo",
+                    fields: ["Business Type", "Company Size", "Consultation Focus"]
                 },
                 {
                     title: "Event Planning",
                     description: "Comprehensive event planning and management",
                     price: "$125/hour",
                     icon: "fa-calendar-check",
-                    color: "red"
+                    color: "red",
+                    fields: ["Event Type", "Expected Guests", "Event Date", "Venue Preference"]
                 },
                 {
                     title: "Tech Support",
                     description: "Expert IT solutions and technical assistance",
                     price: "$80/hour",
                     icon: "fa-laptop-code",
-                    color: "gray"
+                    color: "gray",
+                    fields: ["Issue Type", "Device Type", "Operating System"]
                 },
                 {
                     title: "Home Services",
                     description: "Professional home maintenance and repairs",
                     price: "$90/hour",
                     icon: "fa-house",
-                    color: "green"
+                    color: "green",
+                    fields: ["Service Type", "Property Type", "Issue Description"]
                 },
                 {
                     title: "Travel Assistance",
                     description: "Comprehensive travel planning and support",
                     price: "$75/hour",
                     icon: "fa-plane",
-                    color: "blue"
+                    color: "blue",
+                    fields: ["Destination", "Travel Dates", "Number of Travelers", "Budget Range"]
                 }
             ] %>
 
@@ -166,7 +176,7 @@ nav .logo .logo-img {
                         <p class="text-gray-600 text-center mb-4"><%= service.description %></p>
                         <p class="text-2xl font-bold text-center text-<%= service.color %>-500 mb-6"><%= service.price %></p>
                         <div class="text-center">
-                            <button onclick="bookService('<%= service.title %>')" 
+                            <button onclick="openBookingModal('<%= service.title %>')" 
                                     class="bg-<%= service.color %>-500 hover:bg-<%= service.color %>-600 text-white font-bold py-2 px-6 rounded-full transition duration-300">
                                 Book Now
                             </button>
@@ -177,10 +187,145 @@ nav .logo .logo-img {
         </div>
     </div>
 
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <h3 class="text-2xl font-bold text-center mb-4" id="modalTitle">Book Service</h3>
+                <form id="bookingForm" class="mt-2" onsubmit="handleBookingSubmit(event)">
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                            Full Name
+                        </label>
+                        <input type="text" id="name" name="name" required
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                            Email
+                        </label>
+                        <input type="email" id="email" name="email" required
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                            Phone Number
+                        </label>
+                        <input type="tel" id="phone" name="phone" required
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="date">
+                            Preferred Date
+                        </label>
+                        <input type="date" id="date" name="date" required
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="time">
+                            Preferred Time
+                        </label>
+                        <input type="time" id="time" name="time" required
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+
+                    <!-- Dynamic Fields Container -->
+                    <div id="dynamicFields"></div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="notes">
+                            Additional Notes
+                        </label>
+                        <textarea id="notes" name="notes" rows="3"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                    </div>
+
+                    <div class="flex items-center justify-between mt-6">
+                        <button type="button" onclick="closeBookingModal()"
+                            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Cancel
+                        </button>
+                        <button type="submit"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Submit Booking
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function bookService(serviceName) {
-            alert(`Booking form will open for ${serviceName}`);
-            // Add your booking logic here
+        const servicesData = <%- JSON.stringify(services) %>;
+        
+        function openBookingModal(serviceTitle) {
+            const modal = document.getElementById('bookingModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const dynamicFields = document.getElementById('dynamicFields');
+            
+            // Find the selected service
+            const service = servicesData.find(s => s.title === serviceTitle);
+            
+            // Set modal title
+            modalTitle.textContent = `Book ${serviceTitle}`;
+            
+            // Clear previous dynamic fields
+            dynamicFields.innerHTML = '';
+            
+            // Add service-specific fields
+            service.fields.forEach(field => {
+                const fieldId = field.toLowerCase().replace(/\s+/g, '-');
+                const fieldHtml = `
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="${fieldId}">
+                            ${field}
+                        </label>
+                        <input type="text" id="${fieldId}" name="${fieldId}" required
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                `;
+                dynamicFields.insertAdjacentHTML('beforeend', fieldHtml);
+            });
+            
+            modal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('hidden');
+        }
+
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(event.target);
+            const bookingData = Object.fromEntries(formData.entries());
+            
+            // Here you would typically send this data to your server
+            console.log('Booking Data:', bookingData);
+            
+            // Show success message
+            alert('Booking submitted successfully! We will contact you shortly.');
+            
+            // Close modal
+            closeBookingModal();
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Close modal if clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingModal();
+            }
         }
     </script>
 </body>
