@@ -1,0 +1,187 @@
+<!-- views/services.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Services</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Navigation Bar */
+  nav {
+    background-color: #333;
+    padding: .3rem;
+  }
+
+  nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .logo {
+    text-decoration: none;
+}
+
+nav .logo .logo-img {
+    height: 50px; /* Adjust size as needed */
+    width: auto;  /* Maintain aspect ratio */
+    object-fit: contain; /* Keeps the image within bounds without distortion */
+    vertical-align: middle; /* Aligns with other nav items */
+}
+
+
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  nav ul li {
+    margin-left: 1rem;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #ccc;
+  }
+    </style>
+</head>
+<!-- Navigation Bar -->
+<nav>
+    <div class="container">
+        <nav>
+            <a href="/" class="logo">
+              <img src="one-stop.png" alt="Logo" class="logo-img">
+            </a>
+          </nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Our Professional Services</h1>
+            <p class="text-xl text-gray-600">Expert solutions for all your needs</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <% const services = [
+                {
+                    title: "Legal Advice",
+                    description: "Expert legal consultation with experienced attorneys",
+                    price: "$150/hour",
+                    icon: "fa-scale-balanced",
+                    color: "blue"
+                },
+                {
+                    title: "Medical Consultations",
+                    description: "Professional medical advice from certified doctors",
+                    price: "$200/session",
+                    icon: "fa-user-doctor",
+                    color: "green"
+                },
+                {
+                    title: "Counseling Services",
+                    description: "Supportive mental health counseling and therapy",
+                    price: "$100/session",
+                    icon: "fa-heart",
+                    color: "pink"
+                },
+                {
+                    title: "Financial Advisory",
+                    description: "Professional financial planning and investment advice",
+                    price: "$175/hour",
+                    icon: "fa-coins",
+                    color: "yellow"
+                },
+                {
+                    title: "Education",
+                    description: "Professional tutoring and educational support",
+                    price: "$50/hour",
+                    icon: "fa-graduation-cap",
+                    color: "purple"
+                },
+                {
+                    title: "Business",
+                    description: "Strategic business consulting and development",
+                    price: "$200/hour",
+                    icon: "fa-briefcase",
+                    color: "indigo"
+                },
+                {
+                    title: "Event Planning",
+                    description: "Comprehensive event planning and management",
+                    price: "$125/hour",
+                    icon: "fa-calendar-check",
+                    color: "red"
+                },
+                {
+                    title: "Tech Support",
+                    description: "Expert IT solutions and technical assistance",
+                    price: "$80/hour",
+                    icon: "fa-laptop-code",
+                    color: "gray"
+                },
+                {
+                    title: "Home Services",
+                    description: "Professional home maintenance and repairs",
+                    price: "$90/hour",
+                    icon: "fa-house",
+                    color: "green"
+                },
+                {
+                    title: "Travel Assistance",
+                    description: "Comprehensive travel planning and support",
+                    price: "$75/hour",
+                    icon: "fa-plane",
+                    color: "blue"
+                }
+            ] %>
+
+            <% services.forEach(function(service) { %>
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="text-center mb-4">
+                            <i class="fas <%= service.icon %> text-<%= service.color %>-500 text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 text-center mb-2"><%= service.title %></h3>
+                        <p class="text-gray-600 text-center mb-4"><%= service.description %></p>
+                        <p class="text-2xl font-bold text-center text-<%= service.color %>-500 mb-6"><%= service.price %></p>
+                        <div class="text-center">
+                            <button onclick="bookService('<%= service.title %>')" 
+                                    class="bg-<%= service.color %>-500 hover:bg-<%= service.color %>-600 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <script>
+        function bookService(serviceName) {
+            alert(`Booking form will open for ${serviceName}`);
+            // Add your booking logic here
+        }
+    </script>
+</body>
+</html>
