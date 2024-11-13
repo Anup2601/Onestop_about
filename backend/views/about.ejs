@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential Support Services</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #64748b;
+            --accent-color: #f59e0b;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8fafc;
+        }
+         /* Navigation Bar */
+  nav {
+    background-color: #333;
+    padding: .3rem;
+  }
+
+  nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .logo {
+    text-decoration: none;
+}
+
+nav .logo .logo-img {
+    height: 50px; /* Adjust size as needed */
+    width: auto;  /* Maintain aspect ratio */
+    object-fit: contain; /* Keeps the image within bounds without distortion */
+    vertical-align: middle; /* Aligns with other nav items */
+}
+
+
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  nav ul li {
+    margin-left: 1rem;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #ccc;
+  }
+
+         
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            min-height: 400px;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #d97706;
+        }
+
+        .feature-icon {
+            color: var(--primary-color);
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 300px;
+            }
+        }
+
+         
+    </style>
+</head>
+<body>
+     <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+        <nav>
+            <a href="/" class="logo">
+              <img src="one-stop.png" alt="Logo" class="logo-img">
+            </a>
+          </nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-white pt-24">
+        <div class="container mx-auto px-4 py-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Supporting Your Essential Needs</h1>
+                <p class="text-xl mb-8">Comprehensive support services available 24/7 for your well-being</p>
+                <a href="/services" class="cta-button px-8 py-3 rounded-lg text-white font-semibold">
+                    Get Support Now
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    We provide comprehensive support services designed to enhance your well-being and daily life.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Legal Assistance -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-gavel service-icon"></i>
+                        <h3 class="text-xl font-semibold mb-2">Legal Assistance</h3>
+                        <p class="text-gray-600">Professional legal support for your peace of mind</p>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Document Review and Advice</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Consultations and Representation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>24/7 Helpline</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Medical Support -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-hospital service-icon"></i>
+                        <h3 class="text-xl font-semibold mb-2">Medical Support</h3>
+                        <p class="text-gray-600">Healthcare solutions at your fingertips</p>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Virtual Consultations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Prescription Services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Health Monitoring</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Mental Health -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-brain service-icon"></i>
+                        <h3 class="text-xl font-semibold mb-2">Mental Health Services</h3>
+                        <p class="text-gray-600">Supporting your mental well-being</p>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Therapy Sessions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Mental Health Resources</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>24/7 Crisis Support</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Home Services -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-home service-icon"></i>
+                        <h3 class="text-xl font-semibold mb-2">Home Services</h3>
+                        <p class="text-gray-600">Keeping your home running smoothly</p>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Emergency Repairs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Maintenance Services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Utility Management</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Community Resources -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-users service-icon"></i>
+                        <h3 class="text-xl font-semibold mb-2">Community Resources</h3>
+                        <p class="text-gray-600">Building stronger communities together</p>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Educational Programs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Job Assistance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Community Events</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Financial Services -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-dollar-sign service-icon"></i>
+                        <h3 class="text-xl font-semibold mb-2">Financial Services</h3>
+                        <p class="text-gray-600">Expert financial guidance and support</p>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Financial Counseling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Tax Advisory</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-color mt-1 mr-3"></i>
+                            <span>Investment Planning</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">About Us</h2>
+                <p class="text-gray-600 mb-8">
+                    We are dedicated to providing comprehensive support services that enhance the well-being of our community. 
+                    Our team of experienced professionals works 24/7 to ensure you receive the assistance you need.
+                </p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mt-12">
+                    <div class="stat-card">
+                        <div class="text-3xl font-bold text-primary-color mb-2">24/7</div>
+                        <div class="text-gray-600">Support Available</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-3xl font-bold text-primary-color mb-2">50+</div>
+                        <div class="text-gray-600">Expert Professionals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-3xl font-bold text-primary-color mb-2">1000+</div>
+                        <div class="text-gray-600">Clients Served</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-3xl font-bold text-primary-color mb-2">95%</div>
+                        <div class="text-gray-600">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     
