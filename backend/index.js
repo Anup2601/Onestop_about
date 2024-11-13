@@ -35,6 +35,16 @@ app.get("/services", (req, res) => {
     res.render("services.ejs");
 });
 
+app.get("/about", (req, res) => {
+    res.render("about.ejs");
+});
+
+app.get("/contact", (req, res) => {
+    res.render("contact.ejs");
+});
+
+
+
 app.post("/login", (req, res) => {
     // Handle login form submission
     const { email, password } = req.body;
